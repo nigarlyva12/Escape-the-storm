@@ -1,0 +1,220 @@
+*{
+    font-family: "Press Start 2P", system-ui;
+}
+body {
+    background-color: rgb(55, 59, 109);
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+    opacity: 1;
+    animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translate(300px, 800px) scale(0.5);
+        opacity: 0;
+    }
+}
+.cloud {
+    position: absolute;
+    background-image: url("cloud.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.2;     
+    width: 300px;  
+    height: 250px;
+    animation: moveClouds 5s linear infinite;
+}
+.lightning {
+    position: absolute;
+    background-image: url("lightning.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    width: 120px;  
+    height: 144px;
+    animation: bounce 2s linear infinite;
+    animation-delay: 6s;
+}
+@keyframes bounce{
+    0%{
+        transform: scale(1);
+    }50%{
+        transform: scale(1.1);
+    }100%{
+        transform: scale(1);  
+    }
+}
+@keyframes moveClouds {
+    0% {
+        transform: translateX(-10px);
+    }
+    20% {
+        transform: translateX(-5px);
+    }
+    40%{
+        transform: translateX(0px);
+    }
+    60%{
+        transform: translateX(-5px);
+    }
+    100%{
+        transform: translateX(-10px);
+    }
+    
+}
+.rain-info{
+    position: absolute; 
+    top: 40%;
+    left: 38%;
+    background-color: white;
+    padding: 20px 40px;
+    color: rgb(55, 59, 109);
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    animation: fadeInBounce 8s ease-in-out forwards;
+    animation-delay: 2s;
+    opacity: 0;
+    transition: all 0.3s;
+}
+@keyframes fadeInBounce {
+    0% { opacity: 0.3; transform: translateY(-20px); }
+    20% { opacity: 0.3; transform: translateY(-12px); }
+    20% { opacity: 0.5; transform: translateY(-2px); }
+    60% { opacity: 0.7; transform: translateY(5px); }
+    80% { opacity: 0.9; transform: translateY(5px); }
+    100% { transform: translateY(0); opacity: 0;}
+}
+.question{
+    position: absolute; 
+    top: 40%;
+    left: 40%;
+    background-color: white;
+    padding: 20px 40px;
+    color: rgb(55, 59, 109);
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    animation: fadeInBounce 8s ease-in-out forwards;
+    animation-delay: 12s;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.run-away{
+    position: absolute; 
+    top: 40%;
+    left: 40%;
+    background-color: white;
+    padding: 20px 40px;
+    color: rgb(55, 59, 109);
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    animation: fadeInBounce1 2s ease-in-out forwards;
+    animation-delay: 22s;
+    opacity: 0;
+    transition: all 0.3s;
+}
+@keyframes fadeInBounce1 {
+    0% { opacity: 0; transform: translateY(-20px); }
+    60% { opacity: 0.8; transform: translateY(5px); }
+    100% { transform: translateY(0); opacity: 1;}
+}
+.buttons{
+    position: absolute;
+    top:55%;
+    left: 39%;
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+    animation: fadeInBounce1 2s ease-in-out forwards;
+    animation-delay: 23s;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.buttons a{
+    padding: 14px 20px;
+    background-color: white;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: none;
+    width: 200px;
+    text-align: center;
+    border-radius: 4px;
+}
+.buttons #run{
+    background-color: rgb(6, 158, 6);
+    color: white;
+}
+.buttons #stay{
+    background-color: rgb(196, 83, 17);
+    color: white;
+}
+
+.scene1{
+    display: none;
+    transition: all 0.4s;
+    position: absolute;
+    top: 40%;
+    left: 27%;
+    width: 900px;
+    margin: auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 2s forwards;
+}
+.story {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    color: white;
+}
+.choices {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.choice {
+    padding: 15px 25px;
+    background: #ffcc00;
+    color: #222;
+    border: 3px solid white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.5);
+    display: none;
+    opacity:0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+.choice:hover {
+    background: #ffd633;
+    transform: scale(1.1);
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.choice.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
