@@ -29,7 +29,7 @@ body {
 }
 .cloud {
     position: absolute;
-    background-image: url("cloud.png"); 
+    background-image: url("imgs/cloud.png"); 
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.2;     
@@ -39,7 +39,7 @@ body {
 }
 .lightning {
     position: absolute;
-    background-image: url("lightning.png"); 
+    background-image: url("imgs/lightning.png"); 
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.1;
